@@ -1,1 +1,0 @@
-# FPCL-Fale-Planeje-Confronte-Libere
