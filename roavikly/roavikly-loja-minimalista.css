@@ -54,3 +54,123 @@
 .woof .irs-grid-text, .woof .irs-min, .woof .irs-max { display: none !important; }
 
 .woof_products_top_panel li a { background: #111; color: #fff; font-size: 12px; border-radius: 0; padding: 6px 12px; }
+
+/* ===== v3 ===== */
+/* Checkbox mais perto do texto (Em estoque / Promocao) */
+.woof .woof_container_stock .woof_container_inner,
+.woof .woof_container_onsales .woof_container_inner { gap: 0 !important; }
+.woof .woof_container_stock label, .woof .woof_container_onsales label { margin-left: 4px !important; }
+.woof li { gap: 8px !important; }
+.woof .woof_container_pa_color li, .woof .woof_container_product_cat li { gap: 8px !important; }
+
+/* Tamanhos: so tamanhos americanos adultos (sem infantil, europeu ou kg) */
+.woof .woof_container_pa_size li:has(input[name$="c"]),
+.woof .woof_container_pa_size li:has(input[name$="y"]),
+.woof .woof_container_pa_size li:has(input[name$="t"]),
+.woof .woof_container_pa_size li:has(input[name*="kg"]),
+.woof .woof_container_pa_size li:has(input[name="19"]),
+.woof .woof_container_pa_size li:has(input[name="19-5"]),
+.woof .woof_container_pa_size li:has(input[name="20"]),
+.woof .woof_container_pa_size li:has(input[name="20-5"]),
+.woof .woof_container_pa_size li:has(input[name="21"]),
+.woof .woof_container_pa_size li:has(input[name="21-5"]),
+.woof .woof_container_pa_size li:has(input[name="22"]),
+.woof .woof_container_pa_size li:has(input[name="22-5"]),
+.woof .woof_container_pa_size li:has(input[name="23"]),
+.woof .woof_container_pa_size li:has(input[name="23-5"]),
+.woof .woof_container_pa_size li:has(input[name="24"]),
+.woof .woof_container_pa_size li:has(input[name="24-5"]),
+.woof .woof_container_pa_size li:has(input[name="25"]),
+.woof .woof_container_pa_size li:has(input[name="25-5"]),
+.woof .woof_container_pa_size li:has(input[name="26"]),
+.woof .woof_container_pa_size li:has(input[name="26-5"]),
+.woof .woof_container_pa_size li:has(input[name="27"]),
+.woof .woof_container_pa_size li:has(input[name="27-5"]),
+.woof .woof_container_pa_size li:has(input[name="28"]),
+.woof .woof_container_pa_size li:has(input[name="28-5"]),
+.woof .woof_container_pa_size li:has(input[name="29"]),
+.woof .woof_container_pa_size li:has(input[name="29-5"]),
+.woof .woof_container_pa_size li:has(input[name="30"]),
+.woof .woof_container_pa_size li:has(input[name="30-5"]),
+.woof .woof_container_pa_size li:has(input[name="31"]),
+.woof .woof_container_pa_size li:has(input[name="31-5"]),
+.woof .woof_container_pa_size li:has(input[name="32"]),
+.woof .woof_container_pa_size li:has(input[name="32-5"]),
+.woof .woof_container_pa_size li:has(input[name="33"]),
+.woof .woof_container_pa_size li:has(input[name="33-5"]),
+.woof .woof_container_pa_size li:has(input[name="34"]),
+.woof .woof_container_pa_size li:has(input[name="34-5"]),
+.woof .woof_container_pa_size li:has(input[name="35"]),
+.woof .woof_container_pa_size li:has(input[name="35-5"]),
+.woof .woof_container_pa_size li:has(input[name="36"]),
+.woof .woof_container_pa_size li:has(input[name="36-5"]),
+.woof .woof_container_pa_size li:has(input[name="37"]),
+.woof .woof_container_pa_size li:has(input[name="37-5"]),
+.woof .woof_container_pa_size li:has(input[name="38"]),
+.woof .woof_container_pa_size li:has(input[name="38-5"]),
+.woof .woof_container_pa_size li:has(input[name="39"]),
+.woof .woof_container_pa_size li:has(input[name="39-5"]),
+.woof .woof_container_pa_size li:has(input[name="40"]),
+.woof .woof_container_pa_size li:has(input[name="40-5"]),
+.woof .woof_container_pa_size li:has(input[name="41"]),
+.woof .woof_container_pa_size li:has(input[name="41-5"]),
+.woof .woof_container_pa_size li:has(input[name="42"]),
+.woof .woof_container_pa_size li:has(input[name="42-5"]),
+.woof .woof_container_pa_size li:has(input[name="43"]),
+.woof .woof_container_pa_size li:has(input[name="43-5"]),
+.woof .woof_container_pa_size li:has(input[name="44"]),
+.woof .woof_container_pa_size li:has(input[name="44-5"]),
+.woof .woof_container_pa_size li:has(input[name="45"]),
+.woof .woof_container_pa_size li:has(input[name="45-5"]),
+.woof .woof_container_pa_size li:has(input[name="46"]),
+.woof .woof_container_pa_size li:has(input[name="46-5"]),
+.woof .woof_container_pa_size li:has(input[name="47"]),
+.woof .woof_container_pa_size li:has(input[name="47-5"]),
+.woof .woof_container_pa_size li:has(input[name="48"]),
+.woof .woof_container_pa_size li:has(input[name="48-5"]),
+.woof .woof_container_pa_size li:has(input[name="49"]),
+.woof .woof_container_pa_size li:has(input[name="49-5"]),
+.woof .woof_container_pa_size li:has(input[name="50"]),
+.woof .woof_container_pa_size li:has(input[name="50-5"]),
+.woof .woof_container_pa_size li:has(input[name="51"]),
+.woof .woof_container_pa_size li:has(input[name="51-5"]),
+.woof .woof_container_pa_size li:has(input[name="52"]),
+.woof .woof_container_pa_size li:has(input[name="52-5"]),
+.woof .woof_container_pa_size li:has(input[name="53"]),
+.woof .woof_container_pa_size li:has(input[name="53-5"]),
+.woof .woof_container_pa_size li:has(input[name="54"]),
+.woof .woof_container_pa_size li:has(input[name="54-5"]),
+.woof .woof_container_pa_size li:has(input[name="55"]),
+.woof .woof_container_pa_size li:has(input[name="55-5"]),
+.woof .woof_container_pa_size li:has(input[name="56"]),
+.woof .woof_container_pa_size li:has(input[name="56-5"]),
+.woof .woof_container_pa_size li:has(input[name="57"]),
+.woof .woof_container_pa_size li:has(input[name="57-5"]),
+.woof .woof_container_pa_size li:has(input[name="58"]),
+.woof .woof_container_pa_size li:has(input[name="58-5"]),
+.woof .woof_container_pa_size li:has(input[name="59"]),
+.woof .woof_container_pa_size li:has(input[name="59-5"]),
+.woof .woof_container_pa_size li:has(input[name="60"]),
+.woof .woof_container_pa_size li:has(input[name="60-5"]),
+.woof .woof_container_pa_size li:has(input[name="61"]),
+.woof .woof_container_pa_size li:has(input[name="61-5"]),
+.woof .woof_container_pa_size li:has(input[name="62"]),
+.woof .woof_container_pa_size li:has(input[name="62-5"]),
+.woof .woof_container_pa_size li:has(input[name="63"]),
+.woof .woof_container_pa_size li:has(input[name="63-5"]),
+.woof .woof_container_pa_size li:has(input[name="64"]),
+.woof .woof_container_pa_size li:has(input[name="64-5"]),
+.woof .woof_container_pa_size li:has(input[name="65"]),
+.woof .woof_container_pa_size li:has(input[name="65-5"]),
+.woof .woof_container_pa_size li:has(input[name="66"]) { display: none !important; }
+
+/* Botoes de tamanho limpos, brancos com borda fina */
+.woof .woof_container_pa_size ul { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 8px; max-height: 260px; overflow-y: auto; }
+.woof .woof_container_pa_size li { padding: 0 !important; display: block !important; }
+.woof .woof_container_pa_size li span.woof_label_term, .woof .woof_container_pa_size li .woof_label_term {
+  display: flex !important; align-items: center; justify-content: center; min-height: 40px; margin: 0 !important;
+  background: #fff !important; border: 1px solid #d6d6d6 !important; border-radius: 0 !important; color: #111 !important; font-size: 13px; cursor: pointer; transition: border-color .15s, background .15s, color .15s;
+}
+.woof .woof_container_pa_size li span.woof_label_term:hover { border-color: #111 !important; }
+.woof .woof_container_pa_size li span.woof_label_term.checked,
+.woof .woof_container_pa_size li:has(input:checked) span.woof_label_term { background: #111 !important; border-color: #111 !important; color: #fff !important; }
