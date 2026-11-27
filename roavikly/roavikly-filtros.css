@@ -306,3 +306,156 @@ input[type="checkbox"].wpc-filter-checkbox,
   }
   .widget-area ul { max-height: 180px; }
 }
+
+/* ==========================================================
+   9. HUSKY (WOOF) - Products Filter for WooCommerce
+   Funciona quando o filtro [woof] e exibido dentro da area principal
+   da loja (antes da lista de produtos). Usa :has() para criar a
+   coluna lateral sem mexer no template.
+   ========================================================== */
+@media (min-width: 992px) {
+  body.woocommerce main.site-main:has(> .woof),
+  body.woocommerce main.site-main:has(> .woof_sid) {
+    display: grid;
+    grid-template-columns: var(--rv-sidebar-w) minmax(0, 1fr);
+    column-gap: 32px;
+    align-items: start;
+  }
+  body.woocommerce main.site-main:has(> .woof) > *,
+  body.woocommerce main.site-main:has(> .woof_sid) > * {
+    grid-column: 2;
+    min-width: 0;
+  }
+  body.woocommerce main.site-main > .woof,
+  body.woocommerce main.site-main > .woof_sid {
+    grid-column: 1;
+    grid-row: 1 / span 12;
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}
+
+.woof,
+.woof_sid {
+  background: var(--rv-bg-soft);
+  border-radius: var(--rv-radius);
+  padding: 8px;
+  margin: 0 0 16px;
+}
+
+.woof .woof_container {
+  background: #fff;
+  border-radius: var(--rv-radius);
+  padding: 16px;
+  margin: 0 0 10px;
+}
+
+.woof .woof_container_inner > h4,
+.woof .woof_container_inner h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--rv-ink);
+  text-transform: none;
+}
+
+.woof .woof_block_html_items,
+.woof ul.woof_list {
+  max-height: 220px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.woof ul.woof_list,
+.woof ul.woof_list li { list-style: none; margin: 0; padding: 0; }
+
+.woof ul.woof_list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.9rem;
+}
+
+.woof input[type="checkbox"],
+.woof input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--rv-accent);
+}
+
+.woof .woof_checkbox_count { margin-left: auto; color: var(--rv-muted); font-size: 0.8rem; }
+
+/* Tamanho (atributo pa_tamanho / pa_size) em botoes quadrados */
+.woof .woof_container_pa_tamanho ul.woof_list,
+.woof .woof_container_pa_size ul.woof_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.woof .woof_container_pa_tamanho ul.woof_list li,
+.woof .woof_container_pa_size ul.woof_list li { display: block; }
+.woof .woof_container_pa_tamanho li label,
+.woof .woof_container_pa_size li label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+.woof .woof_container_pa_tamanho li input,
+.woof .woof_container_pa_size li input { position: absolute; opacity: 0; }
+.woof .woof_container_pa_tamanho li:has(input:checked) label,
+.woof .woof_container_pa_size li:has(input:checked) label {
+  background: var(--rv-ink);
+  border-color: var(--rv-ink);
+  color: #fff;
+}
+
+.woof .woof_text_search_container input,
+.woof input[type="search"],
+.woof input[type="text"] {
+  width: 100%;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+.woof .woof_submit_search_form,
+.woof .woof_reset_search_form,
+.woof button.button {
+  width: 100%;
+  padding: 11px 14px;
+  margin-top: 6px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--rv-ink);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.woof .woof_reset_search_form { background: #fff; color: var(--rv-ink); border: 1px solid var(--rv-ink); }
+
+/* Filtros ativos acima dos produtos */
+.woof_products_top_panel { margin: 0 0 14px; }
+.woof_products_top_panel ul { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.woof_products_top_panel li a {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--rv-ink);
+  color: #fff;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+@media (max-width: 991px) {
+  .woof, .woof_sid { margin: 0 16px 16px; }
+}
