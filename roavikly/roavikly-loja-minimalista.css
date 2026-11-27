@@ -1,0 +1,56 @@
+/* Roavikly - Loja minimalista v2 (filtros HUSKY) */
+.woof, .woof_sid, .woof_autohide_wrapper { background: transparent !important; padding: 0 !important; margin: 0 !important; border: 0 !important; box-shadow: none !important; }
+.woof * { box-shadow: none; }
+
+/* Blocos de filtro: sem caixa, so uma linha fina entre eles e bastante respiro */
+.woof .woof_container { background: transparent !important; border: 0 !important; border-bottom: 1px solid #ebebeb !important; border-radius: 0 !important; padding: 28px 0 !important; margin: 0 !important; }
+.woof .woof_container:first-child { padding-top: 0 !important; }
+.woof .woof_container_inner > h4 { font-size: 12px !important; font-weight: 600 !important; letter-spacing: .12em; text-transform: uppercase; color: #111; margin: 0 0 20px !important; line-height: 1.4; }
+
+/* Texto mais solto */
+.woof ul, .woof li { list-style: none; margin: 0; padding: 0; }
+.woof li { font-size: 14px; line-height: 1.6; color: #222; padding: 9px 0 !important; display: flex; align-items: center; gap: 12px; }
+.woof label { font-size: 14px; line-height: 1.6; color: #222; font-weight: 400; letter-spacing: .01em; cursor: pointer; margin: 0; }
+.woof .woof_checkbox_count { margin-left: auto; color: #8a8a8a; font-size: 12px; }
+.woof_checkbox_instock_container .woof_container_inner,
+.woof_checkbox_sales_container .woof_container_inner { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+
+/* Caixas de selecao bem visiveis: borda preta, marcada = preenchida */
+.woof .icheckbox_square-blue, .woof .iradio_square-blue,
+.woof .icheckbox_flat, .woof .iradio_flat {
+  background: #fff !important; background-image: none !important;
+  width: 20px !important; height: 20px !important; flex: 0 0 20px;
+  border: 1.5px solid #111 !important; border-radius: 3px !important;
+  position: relative; filter: none !important; margin: 0 !important;
+}
+.woof .iradio_square-blue, .woof .iradio_flat { border-radius: 50% !important; }
+.woof .icheckbox_square-blue.checked, .woof .iradio_square-blue.checked,
+.woof .icheckbox_flat.checked, .woof .iradio_flat.checked { background: #111 !important; }
+.woof .icheckbox_square-blue.checked::after, .woof .icheckbox_flat.checked::after {
+  content: ""; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px;
+  border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.woof .iradio_square-blue.checked::after, .woof .iradio_flat.checked::after {
+  content: ""; position: absolute; inset: 4px; border-radius: 50%; background: #fff;
+}
+.woof input[type=checkbox], .woof input[type=radio] { accent-color: #111; width: 18px; height: 18px; }
+
+/* Escondidos: tags (vazias) e busca por texto sem uso */
+.woof .woof_container_product_tag, .woof .woof_container_woof_text { display: none !important; }
+
+/* Selects */
+.woof select, .woof .chosen-container-single .chosen-single { border: 0 !important; border-bottom: 1px solid #cfcfcf !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; font-size: 14px; padding: 8px 0 !important; height: auto; }
+
+/* Tamanhos em botoes limpos */
+.woof .woof_container_pa_size ul, .woof .woof_container_pa_tamanho ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.woof .woof_container_pa_size li, .woof .woof_container_pa_tamanho li { padding: 0 !important; }
+.woof .woof_container_pa_size li label, .woof .woof_container_pa_tamanho li label { display: flex; justify-content: center; align-items: center; min-height: 40px; border: 1px solid #d8d8d8; background: #fff; font-size: 13px; }
+
+/* Slider de preco */
+.woof .irs--round .irs-bar, .woof .irs--round .irs-handle { background: #111 !important; border-color: #111 !important; box-shadow: none !important; }
+.woof .irs--round .irs-handle { background: #fff !important; }
+.woof .irs--round .irs-from, .woof .irs--round .irs-to, .woof .irs--round .irs-single { background: transparent !important; color: #111 !important; font-size: 13px; padding: 0; }
+.woof .irs--round .irs-line { background: #e5e5e5 !important; }
+.woof .irs-grid-text, .woof .irs-min, .woof .irs-max { display: none !important; }
+
+.woof_products_top_panel li a { background: #111; color: #fff; font-size: 12px; border-radius: 0; padding: 6px 12px; }
