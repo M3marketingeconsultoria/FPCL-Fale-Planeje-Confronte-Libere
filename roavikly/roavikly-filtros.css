@@ -459,3 +459,58 @@ input[type="checkbox"].wpc-filter-checkbox,
 @media (max-width: 991px) {
   .woof, .woof_sid { margin: 0 16px 16px; }
 }
+
+/* ==========================================================
+   10. HUSKY em modo "autohide": mantem o filtro sempre aberto na
+   coluna lateral (o HUSKY coloca o filtro dentro de
+   .woof_autohide_wrapper e o esconde atras de um botao).
+   ========================================================== */
+.woof_autohide_wrapper > br,
+.woof_autohide_wrapper > .woof_show_auto_form { display: none !important; }
+
+.woof_autohide_wrapper .woof_auto_show,
+.woof_autohide_wrapper .woof_auto_show_indent {
+  opacity: 1 !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  display: block !important;
+}
+
+@media (min-width: 992px) {
+  body.woocommerce main.site-main:has(> .woof_autohide_wrapper) {
+    display: grid;
+    grid-template-columns: var(--rv-sidebar-w) minmax(0, 1fr);
+    column-gap: 32px;
+    align-items: start;
+  }
+  body.woocommerce main.site-main:has(> .woof_autohide_wrapper) > * {
+    grid-column: 2;
+    min-width: 0;
+  }
+  body.woocommerce main.site-main > .woof_autohide_wrapper {
+    grid-column: 1;
+    grid-row: 1 / span 12;
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}
+
+/* Slider de preco e checkboxes soltos (Em estoque / Promocao) */
+.woof .woof_container_stock .woof_container_inner,
+.woof .woof_container_onsales .woof_container_inner { display: flex; align-items: center; gap: 8px; }
+.woof .irs--round .irs-bar,
+.woof .irs--round .irs-handle { background: var(--rv-ink); border-color: var(--rv-ink); }
+.woof .irs--round .irs-from,
+.woof .irs--round .irs-to,
+.woof .irs--round .irs-single { background: var(--rv-ink); }
+
+/* Atributo de cor: mesma grade dos tamanhos */
+.woof .woof_container_pa_color ul.woof_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px 12px;
+}
