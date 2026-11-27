@@ -1,0 +1,308 @@
+/* ==========================================================
+   ROAVIKLY - Catalogo com barra lateral de filtros
+   Colar em: Aparencia > Personalizar > CSS adicional
+   Cobre: Loja (/loja/) e paginas de categoria.
+   Plugins cobertos: widgets nativos do WooCommerce, WooCommerce
+   Product Filters (blocos), Filter Everything, BeRocket AJAX Filters,
+   Product Filter by WBW. Ajuste os seletores se usar outro.
+   ========================================================== */
+
+:root {
+  --rv-ink: #111;
+  --rv-muted: #666;
+  --rv-line: #e6e6e6;
+  --rv-bg-soft: #f6f6f6;
+  --rv-accent: #111;
+  --rv-radius: 10px;
+  --rv-sidebar-w: 270px;
+}
+
+/* ---------- 1. Layout: barra lateral + catalogo ---------- */
+@media (min-width: 992px) {
+  body.woocommerce.archive #primary,
+  body.woocommerce-shop #primary,
+  body.post-type-archive-product #primary {
+    display: grid;
+    grid-template-columns: var(--rv-sidebar-w) minmax(0, 1fr);
+    column-gap: 32px;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Tudo que nao e filtro ocupa a coluna do catalogo */
+  body.woocommerce.archive #primary > main,
+  body.woocommerce-shop #primary > main {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  /* Coluna dos filtros (cobre as saidas mais comuns dos plugins) */
+  body.woocommerce.archive #primary > aside,
+  body.woocommerce.archive #primary > .widget-area,
+  body.woocommerce.archive #primary > .rvly-filters,
+  body.woocommerce-shop #primary > aside,
+  body.woocommerce-shop #primary > .widget-area,
+  body.woocommerce-shop #primary > .rvly-filters {
+    grid-column: 1;
+    grid-row: 1;
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    background: var(--rv-bg-soft);
+    border-radius: var(--rv-radius);
+    padding: 8px;
+    scrollbar-width: thin;
+  }
+}
+
+/* ---------- 2. Catalogo com 3 produtos por linha ---------- */
+body.woocommerce ul.products.columns-4,
+body.woocommerce-page ul.products.columns-4,
+body.woocommerce ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 20px;
+  margin: 0;
+  padding: 0;
+}
+
+body.woocommerce ul.products li.product {
+  width: auto !important;
+  float: none !important;
+  margin: 0 !important;
+  clear: none !important;
+}
+
+body.woocommerce ul.products li.product img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--rv-bg-soft);
+  border-radius: 6px;
+}
+
+body.woocommerce ul.products li.product .woocommerce-loop-product__title {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  margin: 10px 0 4px;
+  color: var(--rv-ink);
+}
+
+body.woocommerce ul.products li.product .price {
+  font-weight: 700;
+  color: var(--rv-ink);
+}
+
+@media (max-width: 991px) {
+  body.woocommerce ul.products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; }
+}
+@media (max-width: 480px) {
+  body.woocommerce ul.products { gap: 14px 10px; }
+  body.woocommerce ul.products li.product .woocommerce-loop-product__title { font-size: 0.85rem; }
+}
+
+/* ---------- 3. Cartoes de filtro (visual da referencia) ---------- */
+.rvly-filters .widget,
+#primary > aside .widget,
+.widget-area .widget,
+.wc-block-product-filters,
+.wpc-filters-section,
+.berocket_single_filter_widget,
+.wbw-filter-block {
+  background: #fff;
+  border-radius: var(--rv-radius);
+  padding: 16px;
+  margin: 0 0 10px;
+  box-shadow: none;
+}
+
+.widget-area .widget-title,
+.widget-area .widgettitle,
+#primary > aside .widget-title,
+.wpc-filter-title,
+.bapf_sfilter .bapf_head h3,
+.wc-block-product-filters__title,
+.wbw-filter-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--rv-ink);
+  margin: 0 0 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Listas de checkboxes (Marca, Genero) */
+.widget-area ul,
+.wpc-filters-labels,
+.wpc-filters-ul-list,
+.bapf_body ul,
+.wc-block-product-filters ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.widget-area li,
+.wpc-filters-ul-list li,
+.bapf_body li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 6px 0;
+  font-size: 0.9rem;
+  color: var(--rv-ink);
+}
+
+.widget-area li a { color: inherit; text-decoration: none; }
+.widget-area li a:hover { text-decoration: underline; }
+.widget-area li .count { margin-left: auto; color: var(--rv-muted); font-size: 0.8rem; }
+
+input[type="checkbox"].wpc-filter-checkbox,
+.widget-area input[type="checkbox"],
+.bapf_body input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--rv-accent);
+  border-radius: 3px;
+}
+
+/* ---------- 4. Tamanhos como botoes quadrados ---------- */
+.widget-area .woocommerce-widget-layered-nav-list,
+.widget-area .wc-block-product-filter-attribute-list--size,
+.wpc-filters-labels.wpc-filter-size,
+.bapf_sfilter.bapf_size ul,
+.wpc-filter-layout-labels .wpc-filters-labels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-height: 220px;
+}
+
+.widget-area .woocommerce-widget-layered-nav-list li,
+.wpc-filter-layout-labels .wpc-term-item {
+  display: block;
+  padding: 0;
+}
+
+.widget-area .woocommerce-widget-layered-nav-list li a,
+.wpc-filter-layout-labels .wpc-term-item label,
+.bapf_sfilter.bapf_size li label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color .15s, background .15s, color .15s;
+}
+
+.widget-area .woocommerce-widget-layered-nav-list li a:hover,
+.widget-area .woocommerce-widget-layered-nav-list li.chosen a,
+.wpc-filter-layout-labels .wpc-term-item.wpc-term-selected label,
+.wpc-filter-layout-labels .wpc-term-item label:hover {
+  border-color: var(--rv-ink);
+  background: var(--rv-ink);
+  color: #fff;
+}
+
+/* ---------- 5. Campo de busca dentro do filtro ---------- */
+.widget-area input[type="search"],
+.widget-area input[type="text"],
+.wpc-search-field,
+.bapf_sfilter input[type="text"] {
+  width: 100%;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+/* ---------- 6. Filtros selecionados / limpar ---------- */
+.widget_layered_nav_filters ul,
+.wpc-filters-selected-values,
+.bapf_sfilter.bapf_sfil_selected ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: none;
+}
+
+.widget_layered_nav_filters li a,
+.wpc-filter-chip,
+.bapf_sfilter .bapf_sfil_selected li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--rv-ink);
+  color: #fff;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.wpc-filters-reset-button,
+.wpc-filters-submit-button,
+.widget-area .button,
+.widget-area button[type="submit"] {
+  width: 100%;
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--rv-ink);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- 7. Barra superior do catalogo (contagem + ordenar) ---------- */
+.rvly-catalog-tools,
+.woocommerce-result-count,
+.woocommerce-ordering {
+  margin-bottom: 16px;
+}
+
+@media (min-width: 992px) {
+  .woocommerce-result-count { float: left; margin-top: 10px; }
+  .woocommerce-ordering { float: right; }
+  body.woocommerce ul.products { clear: both; }
+}
+
+.woocommerce-ordering select {
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: #fff;
+}
+
+/* ---------- 8. Celular: filtros em gaveta recolhivel ---------- */
+@media (max-width: 991px) {
+  body.woocommerce.archive #primary > aside,
+  body.woocommerce.archive #primary > .widget-area,
+  body.woocommerce.archive #primary > .rvly-filters,
+  body.woocommerce-shop #primary > aside,
+  body.woocommerce-shop #primary > .widget-area,
+  body.woocommerce-shop #primary > .rvly-filters {
+    position: static;
+    max-height: none;
+    margin: 0 16px 16px;
+    background: var(--rv-bg-soft);
+    border-radius: var(--rv-radius);
+    padding: 8px;
+  }
+  .widget-area ul { max-height: 180px; }
+}
